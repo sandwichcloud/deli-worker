@@ -41,8 +41,8 @@ VCENTER_PASSWORD = os.environ['VCENTER_PASSWORD']
 VCENTER_IMAGES_FOLDER = 'images'
 VCENTER_INSTANCES_FOLDER = 'instances'
 
-VCENTER_CLUSTER = 'Management'
-VCENTER_DATASTORE = 'datastore2'
+VCENTER_CLUSTER = os.environ['VCENTER_CLUSTER']
+VCENTER_DATASTORE = os.environ['VCENTER_DATASTORE']
 
 ####################
 # DHCP             #
