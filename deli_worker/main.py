@@ -1,14 +1,11 @@
 import sys
 
-from ingredients_tasks.celary import Messaging, database
+from ingredients_tasks.celary import Messaging
 
 
 def main():
     messaging = Messaging('127.0.0.1', 5672, 'sandwich', 'hunter2', '/')
     messaging.connect()
-    database.connect()
-    # with database.session():
-    #     pass
     messaging.app.main = 'deli_worker'
     sys.argv.extend(['worker', '-l', 'info', '-Ofair'])
     messaging.start(argv=None)

@@ -37,18 +37,3 @@ VCENTER_HOST = os.environ['VCENTER_HOST']
 VCENTER_PORT = os.environ['VCENTER_PORT']
 VCENTER_USERNAME = os.environ['VCENTER_USERNAME']
 VCENTER_PASSWORD = os.environ['VCENTER_PASSWORD']
-
-VCENTER_IMAGES_FOLDER = 'images'
-VCENTER_INSTANCES_FOLDER = 'instances'
-
-VCENTER_CLUSTER = os.environ['VCENTER_CLUSTER']
-VCENTER_DATASTORE = os.environ['VCENTER_DATASTORE']
-
-####################
-# DHCP             #
-####################
-
-DHCP_SERVER_IP = os.environ['DHCP_SERVER_IP']
-DHCP_OMAPI_PORT = os.environ.get('DHCP_OMAPI_PORT', 7911)
-DHCP_KEY_NAME = os.environ.get('DHCP_KEY_NAME', None)
-DHCP_B64_KEY = os.environ.get('DHCP_B64_KEY', None)
