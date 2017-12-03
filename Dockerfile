@@ -12,16 +12,19 @@ WORKDIR /usr/src/app
 # Remove build time dependencies
 # Install runtime dependencies
 RUN apk --no-cache add --virtual build-deps \
-    build-base linux-headers pcre-dev postgresql-dev && \
-    pip install dumb-init psycopg2 && \
-    apk del build-deps && \
-    apk --no-cache add bash openssl pcre libpq ca-certificates
+    build-base bash linux-headers pcre-dev postgresql-dev libffi-dev && \
+    pip install dumb-init
 
 # COPY tar.gz from build container
 # Install it
 # TODO: this should be replaced by a build arg to install the correct version from pypi
 COPY --from=0 /usr/src/app/dist/. .
 RUN bash -c "pip install *"
+
+# Remove build time dependencies
+# Install runtime dependencies
+RUN apk del build-deps && \
+    apk --no-cache add openssl pcre libpq libffi ca-certificates
 
 # add entrypoint
 COPY docker-entrypoint.sh /bin/docker-entrypoint.sh
