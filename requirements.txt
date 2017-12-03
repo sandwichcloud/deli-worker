@@ -1,2 +1,2 @@
 ingredients.tasks==0.0.7 # MIT
-ingredients.db==0.0.9 # MIT
+ingredients.db==0.0.10 # MIT
